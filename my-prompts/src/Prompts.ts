@@ -15,7 +15,9 @@ export abstract class Prompts extends EventEmitter {
 
   constructor() {
     super()
+    // 给可读流添加键盘事件
     readline.emitKeypressEvents(process.stdin) // 输入监听键盘事件
+    // 开启键盘控制， close 关闭键盘控制
     this.rl = readline.createInterface({ input: process.stdin })
 
     process.stdin.setRawMode(true)
@@ -52,6 +54,7 @@ export abstract class Prompts extends EventEmitter {
     process.stdin.removeListener('keypress', onKeypress)
     process.stdin.setRawMode(false)
 
+    // 输入完退出 控制台操作
     this.rl.close()
     this.emit('submit', this.value)
   }
