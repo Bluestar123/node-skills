@@ -40,6 +40,13 @@ export abstract class Prompts extends EventEmitter {
     this.onKeyInput(str, key)
   }
 
+  moveTop() {
+    process.stdout.write(ansiEscapes.cursorSavePosition)
+    // 如果不是第一行，滚动到第一行
+    process.stdout.write('\n'.repeat(process.stdout.rows - 2))
+    process.stdout.write(ansiEscapes.cursorRestorePosition)
+  }
+
   close() {
     process.stdout.write('\n')
     process.stdin.removeListener('keypress', onKeypress)

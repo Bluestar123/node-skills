@@ -18,7 +18,6 @@ export class TextPrompt extends Prompts {
 
   constructor(private options: textPromptOptions) {
     super()
-    // this.out.write(ansiEscapes.clearTerminal)
   }
 
   onKeyInput(str: string, key: Key) {
