@@ -1,6 +1,7 @@
 import blessed from 'blessed'
 import contrib from 'blessed-contrib'
 import CpuMonitor from './monitor/cpu.js'
+import MemoryMonitor from './monitor/memory.js'
 
 const screen = blessed.screen({
   fullUnicode: true,
@@ -63,3 +64,5 @@ screen.key('C-c', function () {
 })
 
 new CpuMonitor(cpuLineChart).init()
+
+new MemoryMonitor(memLineChart, memDonut, swapDonut).init()

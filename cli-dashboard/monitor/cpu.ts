@@ -55,7 +55,8 @@ class CpuMonitor {
       }
       loadString = loadString + '%'
       this.cpuData[i].title = 'CPU' + (i + 1) + loadString
-      // 头删一个 尾加一个
+      // 头删一个 尾加一个， 因为默认是0填充的，所以不会感觉有差异，当真实数据到最左边，第一个数据就会被删除
+      // 也就是说，这里的数据是从右往左渲染的
       this.cpuData[i].y.shift()
       this.cpuData[i].y.push(cpu.load)
     })
