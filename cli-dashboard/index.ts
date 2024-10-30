@@ -2,6 +2,8 @@ import blessed from 'blessed'
 import contrib from 'blessed-contrib'
 import CpuMonitor from './monitor/cpu.js'
 import MemoryMonitor from './monitor/memory.js'
+import NetMonitor from './monitor/net.js'
+import DiskMonitor from './monitor/disk.js'
 
 const screen = blessed.screen({
   fullUnicode: true,
@@ -42,8 +44,8 @@ const netSpark = grid.set(8, 0, 2, 6, contrib.sparkline, {
 })
 
 const diskDonut = grid.set(10, 0, 2, 6, contrib.donut, {
-  radius: 8,
-  arcWidth: 3,
+  radius: 4,
+  arcWidth: 2,
   label: '磁盘使用',
 })
 
@@ -66,3 +68,7 @@ screen.key('C-c', function () {
 new CpuMonitor(cpuLineChart).init()
 
 new MemoryMonitor(memLineChart, memDonut, swapDonut).init()
+
+new NetMonitor(netSpark).init()
+
+new DiskMonitor(diskDonut).init()

@@ -72,16 +72,27 @@ class MemoryMonitor {
     this.memData[1].y.push(swapPer)
 
     this.lineChart.setData(this.memData)
+    const memTitle =
+      formatSize(data.total - data.available) + ' of ' + formatSize(data.total)
+
+    const swapTitle =
+      formatSize(data.swaptotal - data.swapfree) +
+      ' of ' +
+      formatSize(data.swaptotal)
 
     this.memDonut.setData([
-      { percent: memPer / 100, label: '', color: colors[0] },
+      { percent: memPer / 100, label: memTitle, color: colors[0] },
     ])
 
     this.swapDonut.setData([
-      { percent: swapPer / 100, label: '', color: colors[1] },
+      { percent: swapPer / 100, label: swapTitle, color: colors[1] },
     ])
     this.lineChart.screen.render()
   }
 }
 
 export default MemoryMonitor
+
+function formatSize(bytes: number) {
+  return (bytes / 1024 / 1024 / 1024).toFixed(2) + ' GB'
+}
