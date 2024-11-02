@@ -1,0 +1,36 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "runtimeExecutable": "ts-node",
+      // "runtimeArgs": ["run-script", "serve"],
+      "name": "Launch test Program",
+      "program": "${workspaceFolder}/node-debug/test.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "console": "integratedTerminal",
+      // "cwd": "${workspaceFolder}"  默认是项目根目录，也可以单独指定
+      "env": {
+        //设置环境变量跑单测
+        "NODE_ENV": "development"
+      }
+      // "envFile": "${workspaceFolder}/.env" // 读取环境变量文件
+      // "presentation": { // 调试分组
+      //   "hidden": false,
+      //   "group": "group node",
+      //   "order": 1
+      // }
+    },
+    {
+      "name": "Launch index Program",
+      "program": "${workspaceFolder}/node-debug/index.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    }
+  ]
+}
