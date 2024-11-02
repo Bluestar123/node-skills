@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "sourcemap",
+      "program": "${workspaceFolder}/dist/sourcemap-demo/index.js", // 开启 sourcemap后，这里可以直接配 ts 文件
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "runtimeArgs": ["-r", "source-map-support/register"]
+    },
+    {
       "runtimeExecutable": "ts-node",
       // "runtimeArgs": ["run-script", "serve"],
       "name": "Launch test Program",
