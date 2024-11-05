@@ -54,7 +54,7 @@ function myPlugin(): PluginObj {
 }
 
 const ast = parser.parse(sourceCode, {
-  sourceType: 'module', //按照esmodule 解析
+  sourceType: 'module', // 按照esmodule 解析
   plugins: ['decorators'], // 支持解析装饰器
 })
 

@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "ast",
+      "program": "${workspaceFolder}/dist/ast-transform/src/index.js", // 开启 sourcemap后，这里可以直接配 ts 文件
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
       "name": "sourcemap",
       "program": "${workspaceFolder}/dist/sourcemap-demo/index.js", // 开启 sourcemap后，这里可以直接配 ts 文件
       "request": "launch",
