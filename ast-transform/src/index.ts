@@ -12,6 +12,7 @@ export class AaaModule {}
 
 function myPlugin(): PluginObj {
   return {
+    //在 visitor 里声明要处理的节点，然后在回调函数里对节点做修改
     visitor: {
       // 找到 import 语句
       Program(path: any) {
