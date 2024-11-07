@@ -283,7 +283,7 @@ function transformer(ast) {
     type: 'Program',
     body: [],
   }
-  // 这里相当于将在旧的AST上创建一个_content,这个属性就是新AST的body，因为是引用，所以后面可以直接操作就的AST
+  // 这里相当于将在旧的AST上创建一个_context,这个属性就是新AST的body，因为是引用，所以后面可以直接操作旧的AST
   ast._context = newAst.body
   // 用之前创建的访问器来访问这个AST的所有节点
   traverser(ast, {
