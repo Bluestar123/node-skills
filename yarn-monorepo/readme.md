@@ -1,7 +1,7 @@
 - package.json 中添加
 
 ```
-"private": "true", // 不把这个目录发到npm上
+"private": "true", // 不把根目录发到npm上
 "workspaces": [
     "packages/*"
 ],

@@ -1,0 +1,19 @@
+{
+  "name": "@aaron-yarn/pnpm-cli",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aaron-yarn/pnpm-core": "workspace:^",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
+}
