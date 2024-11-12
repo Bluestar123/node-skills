@@ -57,3 +57,10 @@ yarn workspaces run build 全都跑 build
 - npx changeset add 处理版本选择
 - npx changeset version 生成最终版本信息
 - git 操作完 执行 npx changeset publish
+
+- changeset 的两个功能：
+
+1. 根据用户选择来更新版本号，并且自动更新依赖的版本号和 dependencies 里的版本
+2. 自动发布所有改动的包到 npm 仓库，并打 tag，和生成 CHAGELOG.md
+
+- yarn workspaces info 查看包依赖信息
