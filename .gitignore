@@ -17,3 +17,4 @@ build/
 .idea
 
 download/
+.DS_Store

@@ -33,3 +33,27 @@
 
 - Scope not found
   需要npm创建组织
+
+### 使用 changeset 管理版本
+
+changeset 就是一次改动的集合，可能一次改动会涉及到多个 package，多个包的版本更新，这合起来叫做一个 changeset
+
+yarn add --dev -W @changesets/cli prettier-plugin-organize-imports prettier-plugin-packagejson
+
+npx changeset init
+
+- 指定 执行命令
+
+yarn workspace @guang-yarn/core run build
+
+yarn workspaces run build 全都跑 build
+
+### semver 规范版本号
+
+- 主版本号递增：当做了不兼容的API修改时，主版本号递增，1.x.x => 2.x.x
+- 此版本号递增：当添加了新的功能但保持与主版本号的向后兼容，此版本号递增，1.0.0 => 1.1.0
+- 修订号递增：当修复了程序错误但没有添加新功能或破坏性改动时，修订号递增，1.0.0 => 1.0.1
+
+- npx changeset add 处理版本选择
+- npx changeset version 生成最终版本信息
+- git 操作完 执行 npx changeset publish
