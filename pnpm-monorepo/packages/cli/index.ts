@@ -19,7 +19,7 @@ program
 program
   .command('minus')
   .description('减法')
-  .argument('a', '第一个数字')
+  .argument('a', '第一 个数字')
   .argument('b', '第二个数字')
   .action((a: string, b: string) => {
     console.log(chalk.cyan(minus(+a, +b)))
