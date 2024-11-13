@@ -5,6 +5,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "pnpm-calc": "dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",

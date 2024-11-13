@@ -13,3 +13,5 @@
 - 编译 pnpm --filter pnpm-core exec npx tsc
 
 - 安装三方包 pnpm --filter cli add chalk commander
+
+- pnpm -r exec npx tsc 递归执行， cli 依赖 core， 会先执行 core
