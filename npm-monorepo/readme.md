@@ -10,3 +10,7 @@
 
 - 所有包都执行命令
   npm exec --workspaces -- npx tsc --init
+
+- 安装包 npm exec --workspace @aaron-yarn/npm-core -- npx tsc
+
+- npm exec --workspaces -- npx tsc
