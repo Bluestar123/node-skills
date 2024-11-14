@@ -1,0 +1,3 @@
+[submodule "git-child/child"]
+	path = git-child/child
+	url = https://github.com/Bluestar123/day-blog.git
