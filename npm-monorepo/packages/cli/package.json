@@ -1,0 +1,20 @@
+{
+  "name": "@aaron-yarn/npm-cli",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@aaron-yarn/npm-core": "^1.0.0"
+  }
+}
