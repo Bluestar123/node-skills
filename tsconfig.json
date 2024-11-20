@@ -12,7 +12,7 @@
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "sourceMap": true //断点会进入ts文件，否则只能进入解析后的js文件
+    "sourceMap": true /*断点会进入ts文件，否则只能进入解析后的js文件 */
   },
   "exclude": ["template-**"]
 }
