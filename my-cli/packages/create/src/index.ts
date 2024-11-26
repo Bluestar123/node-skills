@@ -76,14 +76,14 @@ const create = async () => {
     projectName,
   }
   const deleteFiles: string[] = []
-  const questionConfigPath = path.join(pkg.npmFilePath, 'question.json')
+  const questionConfigPath = path.join(pkg.npmFilePath, 'questions.json')
   if (fse.existsSync(questionConfigPath)) {
     const config = fse.readJsonSync(questionConfigPath)
     for (let key in config) {
       const res = await confirm({ message: '是否启用 ' + key })
       renderData[key] = res
       if (!res) {
-        deleteFiles.push(config[key])
+        deleteFiles.push(...config[key].files)
       }
     }
   }
@@ -91,11 +91,11 @@ const create = async () => {
   const files = await glob('**', {
     cwd: targetPath,
     nodir: true,
-    ignore: ['**/node_modules/**'],
+    ignore: ['node_modules/**'],
   })
   for (let i = 0; i < files.length; i++) {
     const filePath = path.join(targetPath, files[i])
-    const renderResult = await ejs.renderFile(filePath, { projectName })
+    const renderResult = await ejs.renderFile(filePath, renderData)
     fse.writeFileSync(filePath, renderResult)
   }
 
@@ -110,5 +110,5 @@ function sleep(timeout: number) {
     setTimeout(resolve, timeout)
   })
 }
-create()
+// create()
 export default create
