@@ -9,9 +9,8 @@
       "program": "${workspaceFolder}/my-cli/packages/create/dist/index.js",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
-      // "stopOnEntry": true,
-      // "runtimeExecutable": "ts-node",
-      "type": "node"
+      "type": "node",
+      "console": "integratedTerminal" // 控制台输出 执行
     },
     {
       "name": "ast",
@@ -22,7 +21,7 @@
     },
     {
       "name": "sourcemap",
-      "program": "${workspaceFolder}/dist/sourcemap-demo/index.js", // 开启 sourcemap后，这里可以直接配 ts 文件
+      "program": "${workspaceFolder}/sourcemap-demo/index.ts", // 开启 sourcemap后，这里可以直接配 ts 文件
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node",

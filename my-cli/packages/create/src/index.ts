@@ -69,9 +69,24 @@ const create = async () => {
   const targetPath = path.join(process.cwd(), projectName)
 
   fse.copySync(templatePath, targetPath)
-
   spinner.stop()
 
+  // eslint
+  const renderData: Record<string, any> = {
+    projectName,
+  }
+  const deleteFiles: string[] = []
+  const questionConfigPath = path.join(pkg.npmFilePath, 'question.json')
+  if (fse.existsSync(questionConfigPath)) {
+    const config = fse.readJsonSync(questionConfigPath)
+    for (let key in config) {
+      const res = await confirm({ message: '是否启用 ' + key })
+      renderData[key] = res
+      if (!res) {
+        deleteFiles.push(config[key])
+      }
+    }
+  }
   // 遍历模板内的文件，查找文件，依次渲染模板
   const files = await glob('**', {
     cwd: targetPath,
@@ -83,6 +98,12 @@ const create = async () => {
     const renderResult = await ejs.renderFile(filePath, { projectName })
     fse.writeFileSync(filePath, renderResult)
   }
+
+  deleteFiles.forEach((item) => {
+    fse.removeSync(path.join(targetPath, item))
+  })
+
+  console.log(`\nSuccessfully created project ${projectName}`)
 }
 function sleep(timeout: number) {
   return new Promise((resolve) => {
