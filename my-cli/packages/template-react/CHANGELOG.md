@@ -1,5 +1,11 @@
 # @aaron-wang/template-react
 
+## 1.3.0
+
+### Minor Changes
+
+- 60682f1: add eslint ejs
+
 ## 1.2.0
 
 ### Minor Changes

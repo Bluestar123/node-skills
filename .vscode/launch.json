@@ -5,8 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "create",
+      "program": "${workspaceFolder}/my-cli/packages/create/dist/index.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      // "stopOnEntry": true,
+      // "runtimeExecutable": "ts-node",
+      "type": "node"
+    },
+    {
       "name": "ast",
-      "program": "${workspaceFolder}/dist/ast-transform/src/index.js", // 开启 sourcemap后，这里可以直接配 ts 文件
+      "program": "${workspaceFolder}/dist/ast-transform/src/index.ts", // 开启 sourcemap后，这里可以直接配 ts 文件
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node"
