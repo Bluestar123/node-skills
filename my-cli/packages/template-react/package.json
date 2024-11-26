@@ -1,6 +1,6 @@
 {
   "name": "@aaron-wang/template-react",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "my-cli react 模板",
   "main": "index.js",
   "scripts": {

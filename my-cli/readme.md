@@ -35,3 +35,9 @@ pnpm --filter cli exec npx tsc
 pnpm --filter cli add commander fs-extra
 
 pnpm --filter cli add --save-dev @types/fs-extra
+
+---
+
+glob 查找文件
+
+项目名使用模板引擎 ejs

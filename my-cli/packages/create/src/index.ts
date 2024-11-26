@@ -4,6 +4,8 @@ import path from 'path'
 import os from 'os'
 import ora from 'ora'
 import fse from 'fs-extra'
+import { glob } from 'glob'
+import ejs from 'ejs'
 
 const checkIsExistProjectName = async (projectName: string) => {
   const targetPath = path.join(process.cwd(), projectName)
@@ -69,6 +71,18 @@ const create = async () => {
   fse.copySync(templatePath, targetPath)
 
   spinner.stop()
+
+  // 遍历模板内的文件，查找文件，依次渲染模板
+  const files = await glob('**', {
+    cwd: targetPath,
+    nodir: true,
+    ignore: ['**/node_modules/**'],
+  })
+  for (let i = 0; i < files.length; i++) {
+    const filePath = path.join(targetPath, files[i])
+    const renderResult = await ejs.renderFile(filePath, { projectName })
+    fse.writeFileSync(filePath, renderResult)
+  }
 }
 function sleep(timeout: number) {
   return new Promise((resolve) => {
