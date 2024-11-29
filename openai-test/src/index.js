@@ -10,6 +10,9 @@ const main = async () => {
     model: 'gpt-4',
     // 上下文，聊天记录
     messages: [
+      // 指定 system.md 定制角色
+      // AI 的回答方式就被限定了
+      { role: 'system', content: fs.readFileSync('./system.md', 'utf-8') },
       { role: 'user', content: '生成一个 table 的 react 组件' },
       {
         role: 'assistant',
